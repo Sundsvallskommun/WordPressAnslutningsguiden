@@ -1,0 +1,94 @@
+/* 
+ * Used for mixing
+ */
+
+.MaxWidth(@max-width: 1110px) {
+  max-width: @max-width;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.FontBold(@font-size: 16px) {
+  font-family:'Neo Sans W01 Medium';
+  font-size: @font-size;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+
+.Appearance(@value) {
+  -webkit-appearance: @value;
+  -moz-appearance: @value;
+  appearance: @value;
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+.ClearFix() {
+  &:after,
+  &:before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.BoxModel(){
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+
+.CenteredBackground(){
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.Transition(@propery, @duration, @timing, @delay) {
+   -webkit-transition: @arguments;
+  transition: @arguments;
+}
+.Transition2(@trans1; @trans2) {
+   -webkit-transition: @trans1, @trans2;
+  transition: @trans1, @trans2;
+}
+.Transform(@trans) {
+  -ms-transform: @trans;
+  -webkit-transform: @trans;
+  -moz-transform: @trans;
+  -o-transform: @trans;
+  transform: @trans;
+}
+
+.TextColumns(@count, @gap) {
+     -moz-column-count: @count;
+  -webkit-column-count: @count;
+      -moz-column-gap: @gap;
+  -webkit-column-gap : @gap;
+}
+
+.Placeholder(@color) {
+  &::-webkit-input-placeholder { /* WebKit browsers */
+    font-family:'Chaparral W08 Italic';
+      color: @color;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-family:'Chaparral W08 Italic';
+      color: @color;
+      opacity:  1;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-family:'Chaparral W08 Italic';
+      color: @color;
+      opacity:  1;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-family:'Chaparral W08 Italic';
+      color: @color;
+  }
+}

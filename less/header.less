@@ -1,0 +1,40 @@
+@import (reference) 'mixin.less';
+@import (reference) 'vars.less';
+
+header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #fff;
+  z-index: 10000;
+  padding: 12px @pagePadding;
+  height: @headerHeight;
+  overflow: hidden;
+
+  nav,
+  .email {
+    position: absolute;
+    top: 0;
+
+  }
+
+  nav {
+    left: @pagePadding;
+    right: @pagePadding;
+    ul {
+      li {
+        display: inline-block;
+      }
+    }
+  }
+  .email {
+    right: @pagePadding;
+  }
+
+  .logo-holder {
+    img.aloq-logo {
+      width: 100px;
+    }
+  }
+}

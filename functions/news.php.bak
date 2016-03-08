@@ -1,0 +1,13 @@
+<?php
+
+register_post_type('news', array(
+    'labels'	=> array(
+        'name'			=> __('Nyheter'),
+        'singular_name'	=> __('news')
+    ),
+    'public' 		=> true,
+    'rewrite'		=> array('slug' => 'nyheter', 'with_front'=> false),
+    'supports'		=>	array('title')
+));
+
+?>

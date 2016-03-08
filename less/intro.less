@@ -1,0 +1,41 @@
+@import (reference) 'mixin.less';
+@import (reference) 'vars.less';
+
+
+
+.intro-bottom {
+
+  .MaxWidth();
+  h2 {
+    color: @blue;
+    text-transform: uppercase;
+  }
+  h2, p {
+    text-align: center;
+  }
+
+  .buttons {
+    .ClearFix();
+    margin: 0 -5px;
+    >div {
+      float: left;
+      padding: 5px;
+      width: 33.33334%;
+      a {
+        text-align: center;
+        padding: 30px;
+        display: block;
+        color: #fff;
+        background-color: @blue-dark;
+        background-image: url('../img/ikon-pil-vit.png');
+        background-repeat: no-repeat;
+        background-size: 14px 6px;
+        background-position: center bottom 20px;
+        text-transform: uppercase;
+        &:hover {
+          background-color: @blue;
+        }
+      }
+    }
+  }
+}

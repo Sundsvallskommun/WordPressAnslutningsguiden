@@ -1,0 +1,27 @@
+<div class="section"{% if id is defined %} id="{{ id }}"{% endif %}>
+	<h2>{{ title }}</h2>
+	<div class="content">
+		<p>{{ ingress }}</p>
+		<ol class="numbered">
+			{% for item in items %}
+				<li>
+					<div class="innerli">
+						<h3>{{ item.title }}</h3>
+						<div>
+						{% if item.application is defined %}
+							Intresseanmälan här
+						{% else %}
+							{{ item.text|raw }}
+						{% endif %}
+						{% if item.ambasador is defined %}
+							<a href="#" class="ambasador" target="_blank">Jag vill bli ambasadör</a>
+						{% elseif item.dig is defined %}
+							<a href="#dig" class="dig scrollTo">Läs mer i vår grävningsguide</a>
+						{% endif %}
+						</div>
+					</div>
+				</li>
+			{% endfor %}
+		</ol>
+	</div>
+</div>

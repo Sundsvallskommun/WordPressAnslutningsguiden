@@ -1,0 +1,20 @@
+<div class="anslutamotorn">
+	<div class="inner">
+		<h2>Anslutamotorn</h2>
+		<form method="post" action="{{ url }}" id="anslutamotornform">
+			<input type="hidden" name="nonce" value="{{ nonce }}">
+			<input type="hidden" name="action" value="servanetlookup" />
+
+			<input type="text" name="string" placeholder="Din gata" />
+			<button type="submit">Sök</button>
+		</form>
+
+	</div>
+</div>
+
+<div class="toconnect">
+	<div class="inner">
+		<p>Finns redan ServaNet indraget i ditt område men du är inte ansluten?</p>
+		<p>Läs mer om hur du ansluter dig <a href="#">här</a>.</p>
+	</div>
+</div>

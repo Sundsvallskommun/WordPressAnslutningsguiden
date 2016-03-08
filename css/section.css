@@ -1,0 +1,79 @@
+.section > h2 {
+  text-align: center;
+  background: #1a4770;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  padding: 15px 0;
+}
+.section .content {
+  max-width: 1110px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section ol.numbered {
+  counter-reset: li;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin: 0 -10px;
+  display: block;
+}
+.section ol.numbered:after,
+.section ol.numbered:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+.section ol.numbered li {
+  float: left;
+  width: 33.3334%;
+  padding: 10px;
+  position: relative;
+}
+.section ol.numbered li .innerli {
+  background: #f1f1f1;
+  color: #646464;
+  height: 700px;
+  padding-top: 100px;
+  padding: 100px 15px 30px 15px;
+}
+.section ol.numbered li .innerli h3 {
+  text-transform: uppercase;
+  color: #1a4770;
+  text-align: center;
+  border-bottom: 3px solid #fff;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.section ol.numbered li:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  font-family: 'Neo Sans W01 Medium';
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  font-size: 30px;
+  color: #ffffff;
+  background: #00aeef;
+  border-radius: 150px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  line-height: 50px;
+}
+/*# sourceMappingURL=section.css.map */

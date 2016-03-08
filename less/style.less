@@ -1,0 +1,68 @@
+@import (reference) 'mixin.less';
+@import (reference) 'vars.less';
+
+
+/*
+font-family:'Neo Sans W01';
+font-family:'Neo Sans W01 Medium';
+
+*/
+
+/*
+ * Generic styles
+ */
+
+* {
+  font-family:'Neo Sans W01', 'Arial';
+  color: inherit;
+  .BoxModel();
+  .Transition(all, 0.2s, ease, 0s);
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.header-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 415px;
+  position: relative;
+  >div {
+    position: relative;
+    top: 50%;
+    .Transform(translateY(-50%));
+    text-align: center;
+    color: #fff;
+  }
+}
+
+
+
+.anslutamotorn {
+  padding: 50px 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.8);
+    h2 {
+      text-align: center;
+      text-transform: uppercase;
+      color: @blue-dark;
+    }
+  }
+}
