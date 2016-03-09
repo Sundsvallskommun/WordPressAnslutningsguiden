@@ -8,13 +8,11 @@
 					<div class="innerli">
 						<h3>{{ item.title }}</h3>
 						<div>
-						{% if item.application is defined %}
-							Intresseanmälan här
-						{% else %}
-							{{ item.text|raw }}
-						{% endif %}
+						{{ item.text|raw }}
 						{% if item.ambasador is defined %}
-							<a href="#" class="ambasador" target="_blank">Jag vill bli ambasadör</a>
+							<a href="http://www.servanet.se/pages/fiberambassador" class="ambassador" target="_blank">Jag vill bli ambassadör</a>
+						{% elseif item.application is defined %}
+							<a href="#anslutamotorn" class="ambassador scrollTo">Sök på din bostad</a>
 						{% elseif item.dig is defined %}
 							<a href="#dig" class="dig scrollTo">Läs mer i vår grävningsguide</a>
 						{% endif %}

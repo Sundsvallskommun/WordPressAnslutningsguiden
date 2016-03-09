@@ -2,7 +2,7 @@
  * Used for mixing
  */
 
-.MaxWidth(@max-width: 1110px) {
+.MaxWidth(@max-width: 1100px) {
   max-width: @max-width;
   padding-left: 20px;
   padding-right: 20px;
@@ -11,12 +11,33 @@
 }
 
 
-.FontBold(@font-size: 16px) {
-  font-family:'Neo Sans W01 Medium';
+.FontParams(@font-size: 16px) {
   font-size: @font-size;
   font-weight: normal;
   letter-spacing: 1px;
+
 }
+
+.FontBold(@font-size: 16px) {
+  .FontParams(@font-size);
+  font-family:'Neo Sans W01 Bold';
+}
+
+.FontMedium(@font-size: 16px) {
+  .FontParams(@font-size);
+  font-family:'Neo Sans W01 Medium';
+}
+
+.FontBlack(@font-size: 16px) {
+  .FontParams(@font-size);
+  font-family:'Neo Sans W01 Black';
+}
+
+.FontLight(@font-size: 16px) {
+  .FontParams(@font-size);
+  font-family:'Neo Sans W01 Light';
+}
+
 
 
 .Appearance(@value) {

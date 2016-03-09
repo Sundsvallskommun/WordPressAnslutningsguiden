@@ -1,36 +1,30 @@
+.section {
+  padding-bottom: 130px;
+}
 .section > h2 {
   text-align: center;
   background: #1a4770;
   color: #FFFFFF;
   text-transform: uppercase;
   padding: 15px 0;
+  font-size: 36px;
+  letter-spacing: 2px;
 }
 .section .content {
-  max-width: 1110px;
+  max-width: 1100px;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
 }
-.section ol.numbered {
-  counter-reset: li;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  margin: 0 -10px;
-  display: block;
+.section .content > p {
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  padding: 40px 0 45px;
 }
-.section ol.numbered:after,
-.section ol.numbered:before {
-  content: "";
-  display: table;
-  clear: both;
-}
-.section ol.numbered li {
-  float: left;
-  width: 33.3334%;
-  padding: 10px;
-  position: relative;
+.section ol.numbered li:before {
+  top: 40px;
 }
 .section ol.numbered li .innerli {
   background: #f1f1f1;
@@ -46,34 +40,11 @@
   border-bottom: 3px solid #fff;
   padding-bottom: 20px;
   margin-bottom: 20px;
+  font-size: 24px;
+  letter-spacing: 2px;
 }
-.section ol.numbered li:before {
-  content: counter(li);
-  counter-increment: li;
-  position: absolute;
-  left: 50%;
-  top: 40px;
-  -ms-transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
-  font-family: 'Neo Sans W01 Medium';
-  font-size: 16px;
-  font-weight: normal;
-  letter-spacing: 1px;
-  font-size: 30px;
-  color: #ffffff;
-  background: #00aeef;
-  border-radius: 150px;
-  text-align: center;
-  width: 50px;
-  height: 50px;
-  -webkit-box-sizing: border-box;
-  /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;
-  /* Firefox, other Gecko */
-  box-sizing: border-box;
-  line-height: 50px;
+.section ol.numbered li .innerli p {
+  font-size: 18px;
+  line-height: 30px;
 }
 /*# sourceMappingURL=section.css.map */

@@ -13,14 +13,17 @@
 
 	$headerImage = array();
 	$headerImage['image'] = get_template_directory_uri().'/img/header.jpg';
-	$headerImage['logo'] = get_template_directory_uri().'/img/logo-servanet.png';
+	$headerImage['logo'] = get_template_directory_uri().'/img/logo-servanet-stor.png';
 	Timber::render('twig/headerimage.twig', $headerImage);
 
-	Timber::render('twig/intro.twig');
+	$intro = array();
+	$intro['image'] = get_template_directory_uri().'/img/foto-intro.jpg';
+	Timber::render('twig/intro.twig', $intro);
 
 	$data = array();
 	$data['nonce'] = wp_create_nonce("servanetlookup-nonce");
 	$data['url'] = admin_url('admin-ajax.php');
+	$data['bgimage'] = get_template_directory_uri().'/img/foto-sundsvall.jpg';
 
 	Timber::render('twig/anslutamotorn.twig', $data);
 
@@ -33,11 +36,13 @@
 	$data['items'] = array();
 	$data['items'][] = array(
 		'title'	=>	'Intresseanmälan',
+		'text'		=>	'<p>Första steget mot en fiberanslutning är att du gör en intresseanmälan. Börja med att söka på din adress för att ta reda på om du ingår i ett område som vi bearbetar just nu och anmäl sedan ditt intresse.</p>',
 		'application' => 1
 	);
 	$data['items'][] = array(
 		'title'	=>	'Hjälp oss informera',
-		'text' => '<p>Det krävs ett större antal intresserade för att vi ska börja titta på fibermöjligheterna i ditt område. Vill du ha fiber kan du prata med dina grannar och uppmana dem att anmäla sitt intresse till oss. Hör gärna av dig om du brinner lite extra för fiber och vill agera fiberambassadör för ditt område.</p>'
+		'text' => '<p>Det krävs ett större antal intresserade för att vi ska börja titta på fibermöjligheterna i ditt område. Vill du ha fiber kan du prata med dina grannar och uppmana dem att anmäla sitt intresse till oss. Hör gärna av dig om du brinner lite extra för fiber och vill agera fiberambassadör för ditt område.</p>',
+		'ambasador'	=> 1
 	);
 	$data['items'][] = array(
 		'title'	=>	'Projektering',
@@ -100,7 +105,8 @@
 	Timber::render('twig/section.twig', $data);
 
 
-	Timber::render('twig/later.twig');
+	Timber::render('twig/after.twig');
+	Timber::render('twig/order.twig');
 	Timber::render('twig/dig.twig');
 	get_footer();
 

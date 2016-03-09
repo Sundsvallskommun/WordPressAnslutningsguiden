@@ -5,6 +5,9 @@
 /*
 font-family:'Neo Sans W01';
 font-family:'Neo Sans W01 Medium';
+font-family:'Neo Sans W01 Light';
+font-family:'Neo Sans W01 Black';
+font-family:'Neo Sans W01 Bold';
 
 */
 
@@ -45,24 +48,231 @@ h6 {
     .Transform(translateY(-50%));
     text-align: center;
     color: #fff;
+    h1 {
+      .FontMedium(34px);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    p {
+      .FontLight(29px);
+    }
+    img {
+      width: 160px;
+      height: auto;
+    }
   }
 }
 
 
+.toconnect {
+  padding: 90px 0;
+  .inner {
+    .MaxWidth();
+    max-width: 1060px;
+    background-color: @gray-light;
+    background-image: url('../img/ikon-cirkel-hus.png');
+    background-repeat: no-repeat;
+    background-size: 86px 86px;
+    background-position: center 40px;
+    display: block;
+    padding-top: 150px;
+    text-align: center;
+    padding-bottom: 70px;
+    position: relative;
+    .BlueDownArrow();
+  }
+  p {
+    font-size: 20px;
+    line-height: 30px;
+    color: @gray;
+  }
+}
+
 
 .anslutamotorn {
-  padding: 50px 0;
+  padding: 75px 0 90px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   .inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.8);
+    .MaxWidth();
+    max-width: 1060px;
+    background: rgba(255, 255, 255, 0.9);
+    min-height: 600px;
+    padding: 35px;
     h2 {
       text-align: center;
       text-transform: uppercase;
       color: @blue-dark;
+      font-size: 26px;
     }
+  }
+}
+
+.after,
+.dig {
+  h2 {
+    text-transform: uppercase;
+  }
+  p,
+  h2 {
+    color: @gray;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+}
+
+.after {
+  position: relative;
+  background: @gray-light;
+  .after-top,
+  .after-bottom {
+    .MaxWidth();
+  }
+  .button {
+    a {
+      background: @blue-dark;
+      padding: 20px;
+      font-size: 20px;
+      line-height: 30px;
+      color: #fff;
+      display: inline-block;
+    }
+  }
+
+
+  ol.numbered {
+    li {
+      .innerafter {
+        padding-top: 50px;
+        text-align: center;
+      }
+      .image {
+        height: 150px;
+        background: #fff;
+      }
+      &:before {
+        top: 200px;
+      }
+    }
+  }
+}
+
+
+.order {
+  .MaxWidth();
+  margin-top: 100px;
+  margin-bottom: 100px;
+  background: @blue;
+  color: #fff;
+  text-align: center;
+  padding: 25px 20px;
+  h2 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 17px;
+    line-height: 28px;
+    padding: 15px 0;
+  }
+  h2, strong {
+    text-transform: uppercase;
+  }
+  strong {
+    font-weight: 400;
+  }
+}
+
+ol.numbered {
+  counter-reset: li;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin: 0 -10px;
+  display: block;
+  .ClearFix();
+  li {
+    float: left;
+    width: 33.3334%;
+    padding: 10px;
+    position: relative;
+
+    &:before {
+      content: counter(li);
+      counter-increment: li;
+      position: absolute;
+      left: 50%;
+      .Transform(translateX(-50%));
+      .FontMedium(30px);
+      color: #ffffff;
+      background: @blue;
+      border-radius: 150px;
+      text-align: center;
+      width: 50px;
+      height: 50px;
+      .BoxModel();
+      line-height: 50px;
+    }
+  }
+}
+
+
+.ambassador {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: @blue;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+}
+
+.dig {
+  .MaxWidth();
+
+}
+
+
+.dig-guide {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  >a {
+    position: relative;
+    background-image: url('../img/ikon-spade.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 22px 61px;
+    padding-top: 65px;
+    padding-bottom: 40px;
+    color: @blue;
+    font-size: 13px;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-transform: uppercase;
+    .BlueDownArrow();
+  }
+}
+
+.BlueDownArrow() {
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    .Transform(translateX(-50%));
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    content: "";
+    background-image: url('../img/ikon-pil-bla.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 10px 9px;
   }
 }
