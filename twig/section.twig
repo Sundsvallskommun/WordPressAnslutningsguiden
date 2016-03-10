@@ -14,7 +14,9 @@
 						{% elseif item.application is defined %}
 							<a href="#anslutamotorn" class="ambassador scrollTo">Sök på din bostad</a>
 						{% elseif item.dig is defined %}
-							<a href="#dig" class="dig scrollTo">Läs mer i vår grävningsguide</a>
+							<div class="dig-guide">
+								<a href="#dig" class="dig-guide-link scrollTo">Läs mer i vår grävningsguide</a>
+							</div>
 						{% endif %}
 						</div>
 					</div>

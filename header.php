@@ -79,8 +79,8 @@
 
 	<?php
 		$header = array();
-		$header['logo'] = get_field('logo', 'options');
-		$header['email'] = get_field('email', 'options');
-		$header['nav'] = wp_nav_menu(array('menu' => 'main_menu', 'echo' => false));
+		$header['logo'] = get_template_directory_uri().'/img/logo-servanet.png';
+		$header['menu'] = get_template_directory_uri().'/img/ikon-meny.png';
+
 		Timber::render('twig/header.twig', $header);
 	?>

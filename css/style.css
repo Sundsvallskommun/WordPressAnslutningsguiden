@@ -58,18 +58,35 @@ h6 {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+@media only screen and (min-width: 1px) and (max-width: 1199px) {
+  .header-image > div h1 {
+    font-size: 24px;
+  }
+}
 .header-image > div p {
   font-size: 29px;
   font-weight: normal;
   letter-spacing: 1px;
   font-family: 'Neo Sans W01 Light';
 }
+@media only screen and (min-width: 1px) and (max-width: 1199px) {
+  .header-image > div p {
+    font-size: 18px;
+    padding: 0 25px;
+  }
+}
 .header-image > div img {
   width: 160px;
   height: auto;
+  margin-bottom: 30px;
 }
 .toconnect {
   padding: 90px 0;
+}
+@media only screen and (min-width: 1px) and (max-width: 1199px) {
+  .toconnect {
+    padding: 0;
+  }
 }
 .toconnect .inner {
   max-width: 1100px;
@@ -88,6 +105,11 @@ h6 {
   text-align: center;
   padding-bottom: 70px;
   position: relative;
+}
+@media only screen and (min-width: 1px) and (max-width: 1199px) {
+  .toconnect .inner {
+    max-width: 100%;
+  }
 }
 .toconnect .inner:after {
   position: absolute;
@@ -112,6 +134,12 @@ h6 {
   line-height: 30px;
   color: #646464;
 }
+@media only screen and (min-width: 1px) and (max-width: 1199px) {
+  .toconnect p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
 .anslutamotorn {
   padding: 75px 0 90px;
   background-repeat: no-repeat;
@@ -135,6 +163,46 @@ h6 {
   color: #1a4770;
   font-size: 26px;
 }
+.dig,
+.after-top {
+  background-repeat: no-repeat;
+  background-size: 85px 85px;
+  background-position: left 40px top 5px;
+}
+@media only screen and (min-width: 1px) and (max-width: 1199px) {
+  .dig,
+  .after-top {
+    background-position: center top;
+  }
+  .dig > h2,
+  .after-top > h2 {
+    padding-top: 100px;
+  }
+}
+.dig > h2,
+.after-top > h2,
+.dig > p,
+.after-top > p,
+.dig .interest,
+.after-top .interest {
+  padding-left: 160px;
+}
+@media only screen and (min-width: 1px) and (max-width: 1199px) {
+  .dig > h2,
+  .after-top > h2,
+  .dig > p,
+  .after-top > p,
+  .dig .interest,
+  .after-top .interest {
+    padding-left: 0;
+  }
+}
+.dig {
+  background-image: url('../img/ikon-cirkel-spade.png');
+}
+.after-top {
+  background-image: url('../img/ikon-cirkel-hus.png');
+}
 .after h2,
 .dig h2 {
   text-transform: uppercase;
@@ -147,9 +215,53 @@ h6 {
   font-size: 20px;
   line-height: 30px;
 }
+@media only screen and (min-width: 1px) and (max-width: 1199px) {
+  .after p,
+  .dig p,
+  .after h2,
+  .dig h2 {
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+  }
+}
 .after {
   position: relative;
   background: #f1f1f1;
+  padding-top: 100px;
+  padding-bottom: 130px;
+}
+@media only screen and (min-width: 1px) and (max-width: 1199px) {
+  .after {
+    padding-top: 50px;
+  }
+}
+.after .interest {
+  display: table;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.after .interest > div {
+  display: table-cell;
+  vertical-align: top;
+}
+.after .interest > div.button {
+  width: 300px;
+  text-align: right;
+}
+@media only screen and (min-width: 1px) and (max-width: 1199px) {
+  .after .interest {
+    display: block;
+  }
+  .after .interest > div {
+    display: block;
+  }
+  .after .interest > div.button {
+    padding-top: 15px;
+    width: 100%;
+    text-align: center;
+  }
 }
 .after .after-top,
 .after .after-bottom {
@@ -161,15 +273,21 @@ h6 {
 }
 .after .button a {
   background: #1a4770;
-  padding: 20px;
+  padding: 8px 60px;
   font-size: 20px;
   line-height: 30px;
   color: #fff;
   display: inline-block;
 }
 .after ol.numbered li .innerafter {
-  padding-top: 50px;
+  padding-top: 120px;
   text-align: center;
+  height: 460px;
+}
+@media only screen and (min-width: 1px) and (max-width: 719px) {
+  .after ol.numbered li .innerafter {
+    height: auto;
+  }
 }
 .after ol.numbered li .image {
   height: 150px;
@@ -179,7 +297,7 @@ h6 {
   top: 200px;
 }
 .order {
-  max-width: 1100px;
+  max-width: 1060px;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
@@ -194,10 +312,21 @@ h6 {
 .order h2 {
   font-size: 24px;
 }
+@media only screen and (min-width: 1px) and (max-width: 719px) {
+  .order h2 {
+    font-size: 18px;
+  }
+}
 .order p {
   font-size: 17px;
   line-height: 28px;
   padding: 15px 0;
+}
+@media only screen and (min-width: 1px) and (max-width: 1199px) {
+  .order p {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 .order h2,
 .order strong {
@@ -226,6 +355,24 @@ ol.numbered li {
   padding: 10px;
   position: relative;
 }
+@media only screen and (min-width: 1px) and (max-width: 1199px) {
+  ol.numbered li {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 1px) and (max-width: 719px) {
+  ol.numbered li {
+    width: 100%;
+  }
+}
+ol.numbered li a {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #00aeef;
+}
 ol.numbered li:before {
   content: counter(li);
   counter-increment: li;
@@ -253,13 +400,15 @@ ol.numbered li:before {
   box-sizing: border-box;
   line-height: 50px;
 }
+@media only screen and (min-width: 1px) and (max-width: 1199px) {
+  ol.numbered li:before {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 39px;
+  }
+}
 .ambassador {
-  text-align: center;
-  text-decoration: underline;
-  font-size: 13px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #00aeef;
   position: absolute;
   left: 0;
   right: 0;
@@ -271,6 +420,9 @@ ol.numbered li:before {
   padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
+}
+.dig .movie {
+  margin: 50px 0;
 }
 .dig-guide {
   position: absolute;

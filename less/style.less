@@ -52,23 +52,39 @@ h6 {
       .FontMedium(34px);
       letter-spacing: 2px;
       text-transform: uppercase;
+      @media @size-960 {
+        font-size: 24px;
+      }
     }
     p {
       .FontLight(29px);
+      @media @size-960 {
+        font-size: 18px;
+        padding: 0 25px;
+      }
+
     }
     img {
       width: 160px;
       height: auto;
+      margin-bottom: 30px;
     }
   }
+
 }
 
 
 .toconnect {
   padding: 90px 0;
+  @media @size-960 {
+    padding: 0;
+  }
   .inner {
     .MaxWidth();
     max-width: 1060px;
+    @media @size-960 {
+      max-width: 100%;
+    }
     background-color: @gray-light;
     background-image: url('../img/ikon-cirkel-hus.png');
     background-repeat: no-repeat;
@@ -85,6 +101,9 @@ h6 {
     font-size: 20px;
     line-height: 30px;
     color: @gray;
+    @media @size-960 {
+      .FontBreadSmall();
+    }
   }
 }
 
@@ -109,6 +128,32 @@ h6 {
   }
 }
 
+.dig,
+.after-top {
+  background-repeat: no-repeat;
+  background-size: 85px 85px;
+  background-position: left 40px top 5px;
+  @media @size-960 {
+    background-position: center top;
+    >h2 {
+      padding-top: 100px;
+    }
+  }
+  >h2, >p, .interest {
+    padding-left: 160px;
+    @media @size-960 {
+      padding-left: 0;
+    }
+  }
+}
+
+.dig {
+  background-image: url('../img/ikon-cirkel-spade.png');
+}
+.after-top {
+  background-image: url('../img/ikon-cirkel-hus.png');
+}
+
 .after,
 .dig {
   h2 {
@@ -119,6 +164,10 @@ h6 {
     color: @gray;
     font-size: 20px;
     line-height: 30px;
+    @media @size-960 {
+      .FontBreadSmall();
+      text-align: center;
+    }
   }
 
 }
@@ -126,6 +175,36 @@ h6 {
 .after {
   position: relative;
   background: @gray-light;
+  padding-top: 100px;
+  padding-bottom: 130px;
+  @media @size-960 {
+    padding-top: 50px;
+  }
+  .interest {
+    display: table;
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    >div {
+      display: table-cell;
+      vertical-align: top;
+      &.button {
+        width: 300px;
+        text-align: right;
+      }
+    }
+    @media @size-960 {
+      display: block;
+      >div {
+        display: block;
+        &.button {
+          padding-top: 15px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
   .after-top,
   .after-bottom {
     .MaxWidth();
@@ -133,7 +212,7 @@ h6 {
   .button {
     a {
       background: @blue-dark;
-      padding: 20px;
+      padding: 8px 60px;
       font-size: 20px;
       line-height: 30px;
       color: #fff;
@@ -145,8 +224,13 @@ h6 {
   ol.numbered {
     li {
       .innerafter {
-        padding-top: 50px;
+        padding-top: 120px;
         text-align: center;
+        height: 460px;
+        @media @size-320 {
+          height: auto;
+        }
+
       }
       .image {
         height: 150px;
@@ -161,20 +245,27 @@ h6 {
 
 
 .order {
-  .MaxWidth();
+  .MaxWidth(1060px);
   margin-top: 100px;
   margin-bottom: 100px;
   background: @blue;
   color: #fff;
   text-align: center;
   padding: 25px 20px;
+  
   h2 {
     font-size: 24px;
+    @media @size-320 {
+      font-size: 18px;
+    }
   }
   p {
     font-size: 17px;
     line-height: 28px;
     padding: 15px 0;
+    @media @size-960 {
+      .FontBreadSmall();
+    }
   }
   h2, strong {
     text-transform: uppercase;
@@ -197,7 +288,20 @@ ol.numbered {
     width: 33.3334%;
     padding: 10px;
     position: relative;
-
+    @media @size-960 {
+      width: 50%;
+    }
+    @media @size-320 {
+      width: 100%;
+    }
+    a {
+      text-align: center;
+      text-decoration: underline;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: @blue;
+    }
     &:before {
       content: counter(li);
       counter-increment: li;
@@ -213,18 +317,20 @@ ol.numbered {
       height: 50px;
       .BoxModel();
       line-height: 50px;
+      @media @size-960 {
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+        line-height: 39px;
+      }
     }
   }
 }
 
 
+
+
 .ambassador {
-  text-align: center;
-  text-decoration: underline;
-  font-size: 13px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: @blue;
   position: absolute;
   left: 0;
   right: 0;
@@ -233,7 +339,9 @@ ol.numbered {
 
 .dig {
   .MaxWidth();
-
+  .movie {
+    margin: 50px 0;
+  }
 }
 
 

@@ -2,14 +2,70 @@
 @import (reference) 'vars.less';
 
 header {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  background: #fff;
-  z-index: 10000;
+  //position: absolute;
+  //left: 0;
+  //right: 0;
+  //top: 0;
+  //background: #fff;
+  //z-index: 10000;
   //padding: 12px @pagePadding;
   //height: @headerHeight;
-  overflow: hidden;
-
+  //overflow: hidden;
+  background: @blue-dark;
+  color: #fff;
+  padding: 15px 0;
+  position: relative;
+  z-index: 500;
+  .header-wrapper {
+    .MaxWidth();
+    .ClearFix();
+    .logo {
+      float: left;
+      img {
+        width: 133px;
+        height: auto;
+      }
+    }
+    .nav {
+      text-align: right;
+      position: relative;
+      .opener {
+        img {
+          width: 33px;
+          height: auto;
+        }
+      }
+      ul {
+        position: absolute;
+        z-index: 10;
+        right: 0;
+        top: 37px;
+        //display: none;
+        opacity: 0;
+        pointer-events: none;
+        &.active {
+          pointer-events: auto;
+          opacity: 1;
+          //display: block;
+        }
+        li {
+          text-transform: uppercase;
+          a {
+            width: 280px;
+            padding: 20px 15px;
+            letter-spacing: 1px;
+            font-size: 15px;
+            line-height: 15px;
+            display: block;
+          }
+          &:nth-child(even) {
+            background: @menuEven;
+          }
+          &:nth-child(odd) {
+            background: @menuOdd
+          }
+        }
+      }
+    }
+  }
 }

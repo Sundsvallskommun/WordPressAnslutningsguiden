@@ -9,11 +9,19 @@
     color: @blue;
     text-transform: uppercase;
     letter-spacing: 2px;
+    padding-bottom: 15px;
+    @media @size-960 {
+      font-size: 20px;
+      padding-bottom: 10px;
+    }
   }
   p {
     color: @gray;
     font-size: 20px;
     line-height: 30px;
+    @media @size-960 {
+      .FontBreadSmall();
+    }
   }
 }
 
@@ -21,13 +29,24 @@
   margin-top: 130px;
   margin-bottom: 100px;
   .MaxWidth();
+  @media @size-960 {
+    margin-top: 30px;
+    margin-bottom: 70px;
+  }
   .inner {
     margin: 0 -20px;
     .ClearFix();
+    position: relative;
     >div {
       float: left;
       width: 50%;
       padding: 0 20px;
+      @media @size-960 {
+        width: 100%;
+        &.image {
+          display: none;
+        }
+      }
       img {
         width: 100%;
         height: auto;
@@ -36,15 +55,51 @@
   }
 
   .buttons-wrapper {
-    padding-top: 20px;
+    //padding-top: 20px;
+    position: absolute;
+    left: calc(~"50% + 20px");
+    bottom: 0;
+    right: 0;
+    >p {
+      padding-bottom: 15px;
+    }
+    @media @size-960 {
+      position: relative;
+      left: auto;
+      bottom: auto;
+      right: auto;
+      padding-top: 20px;
+    }
   }
   .buttons {
-    margin: 0 -10px;
+    margin: 0 -12px;
     .ClearFix();
     >div {
       float: left;
       width: 50%;
-      padding: 0 10px;
+      padding: 0 12px;
+      @media @size-320 {
+        width: 100%;
+        padding-bottom: 10px;
+      }
+      .company,
+      .apartment {
+        font-size: 20px;
+        background-repeat: no-repeat;
+        background-size: 32px 33px;
+        background-position: left 10px center;
+        display: block;
+        color: #fff;
+        padding: 15px 0 15px 60px;
+      }
+      .company {
+        background-image: url('../img/ikon-foretagare.png');
+        background-color: #3EB0EE;
+      }
+      .apartment {
+        background-image: url('../img/ikon-lagenheter.png');
+        background-color: #FE0000;
+      }
     }
   }
 }
@@ -54,9 +109,15 @@
   margin-bottom: 80px;
   h2, p {
     text-align: center;
+    @media @size-960 {
+      text-align: left;
+    }
   }
   p {
     padding: 20px 0 40px;
+    @media @size-960 {
+      padding-top: 0px;
+    }
   }
 
   .buttons {
@@ -66,6 +127,9 @@
       float: left;
       padding: 5px;
       width: 33.33334%;
+      @media @size-320 {
+        width: 100%;
+      }
       a {
         text-align: center;
         padding: 30px;

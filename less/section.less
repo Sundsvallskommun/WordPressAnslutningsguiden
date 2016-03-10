@@ -5,6 +5,9 @@
 
 .section {
   padding-bottom: 130px;
+  @media @size-960 {
+    padding-bottom: 65px;
+  }
   >h2 {
     text-align: center;
     background: @blue-dark;
@@ -13,6 +16,9 @@
     padding: 15px 0;
     font-size: 36px;
     letter-spacing: 2px;
+    @media @size-960 {
+      font-size: 28px;
+    }
   }
   .content {
     .MaxWidth();
@@ -22,19 +28,33 @@
       line-height: 30px;
       text-align: center;
       padding: 40px 0 45px;
+      @media @size-960 {
+        .FontBreadSmall();
+        padding: 20px 0 25px;
+      }
     }
   }
   ol.numbered {
     li {
       &:before {
         top: 40px;
+        @media @size-960 {
+          //top: 30px;
+        }
       }
       .innerli {
         background: @gray-light;
         color: @gray;
         height: 700px;
-        padding-top: 100px;
-        padding: 100px 15px 30px 15px;
+        padding: 100px 25px 30px;
+        @media @size-960 {
+          padding-top: 90px;
+          padding-bottom: 130px;
+          height: 500px;
+        }
+        @media @size-320 {
+          height: auto;
+        }
         h3 {
           text-transform: uppercase;
           color: @blue-dark;
@@ -44,12 +64,21 @@
           margin-bottom: 20px;
           font-size: 24px;
           letter-spacing: 2px;
+          @media @size-960 {
+            font-size: 20px;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+          }
         }
         p {
           font-size: 18px;
           line-height: 30px;
+          @media @size-960 {
+            .FontBreadSmall();
+          }
         }
       }
     }
   }
 }
+
