@@ -131,15 +131,20 @@
 					$matches = array();
 					if (count($matchesRaw) > 0) {
 						foreach ($matchesRaw as $matchItem) {
-							$tempObj = new stdClass();
-							$tempObj->link = 'http://www.servanet.se'.(string)$matchItem->link;
-							$tempObj->address = (string)$matchItem->address;
-							$tempObj->source = (string)$matchItem->source;
-							$tempObj->type = (string)$matchItem->type;
-							$tempObj->area = (string)$matchItem->area;
-							$tempObj->city = (string)$matchItem->city;
-							$tempObj->zip = (string)$matchItem->zip;
-							$matches[] = $tempObj;
+//							$tempObj = new stdClass();
+//							$tempObj->link = 'http://www.servanet.se'.(string)$matchItem->link;
+//							$tempObj->address = (string)$matchItem->address;
+//							$tempObj->source = (string)$matchItem->source;
+//							$tempObj->type = (string)$matchItem->type;
+//							$tempObj->area = (string)$matchItem->area;
+//							$tempObj->city = (string)$matchItem->city;
+//							$tempObj->zip = (string)$matchItem->zip;
+//							$matches[] = $tempObj;
+							$array = array();
+							foreach($matchItem as $k => $v) {
+								$array[$k] = (string)$v;
+							}
+							$matches[] = $array;
 						}
 						$return['results'] = $matches;
 					}
