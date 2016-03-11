@@ -13,6 +13,8 @@
 							<a href="http://www.servanet.se/pages/fiberambassador" class="ambassador" target="_blank">Jag vill bli ambassadör</a>
 						{% elseif item.application is defined %}
 							<a href="#anslutamotorn" class="ambassador scrollTo">Sök på din bostad</a>
+						{% elseif item.services is defined %}
+							<a href="http://www.servanet.se/serviceguide/index/consumers" target="_blank" class="bottom-link">Beställ tjänster</a>
 						{% elseif item.dig is defined %}
 							<div class="dig-guide">
 								<a href="#dig" class="dig-guide-link scrollTo">Läs mer i vår grävningsguide</a>

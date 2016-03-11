@@ -1,5 +1,6 @@
-(function() {
-    $(document).ready(function() {
+(function () {
+    var $dataset;
+    $(document).ready(function () {
         $('#anslutamotornform').on('submit', function (e) {
             e.preventDefault();
             var $url = $(this).attr('action');
@@ -8,18 +9,17 @@
                 dataType: 'json',
                 url: $url,
                 data: $data
-            }).done(function(data) {
+            }).done(function (data) {
                 if (data.results !== undefined && data.error === undefined) {
-                    //console.log(data.results);
-                    $(data.results).each(function() {
-                        console.log(this);
-                    })
+                    $dataset = data.results;
+                    displayData(data.results.slice(0, 4));
+                    setupPagination();
                 }
                 if (data.error !== undefined) {
                     console.log(data.error);
                 }
-            }).fail(function(data) {
-            }).always(function(data) {
+            }).fail(function (data) {
+            }).always(function (data) {
             });
         });
 
@@ -39,7 +39,7 @@
         $fluidEl = $(".movie");
 
         // Figure out and save aspect ratio for each video
-        $allVideos.each(function() {
+        $allVideos.each(function () {
             $(this)
                 .data('aspectRatio', this.height / this.width)
                 // and remove the hard coded width/height
@@ -48,10 +48,10 @@
         });
 
         // When the window is resized
-        $(window).resize(function() {
+        $(window).resize(function () {
             var newWidth = $fluidEl.innerWidth();
             // Resize all videos according to their own aspect ratio
-            $allVideos.each(function() {
+            $allVideos.each(function () {
                 var $el = $(this);
                 $el
                     .width(newWidth)
@@ -60,4 +60,88 @@
             // Kick off one resize to fix all videos on page load
         }).resize();
     });
+
+    function displayData($items) {
+        $('#results').html('');
+        $.each($items, function (i, item) {
+            /**
+             * Check various variables
+             * If source is "connect", there's a link they can use to apply
+             * If source is "connected",
+             */
+            console.log(item);
+            if (item.status !== undefined && item.status == 'connected') {
+                /* This address is already connected */
+                $row = constructRow(item.address + ', ' + item.city, item.premise, "Ansluten", '', '');
+                $row.appendTo($('#results'));
+            }
+            else if (item.source == 'connect') {
+                $row = constructRow(item.address + ', ' + item.city, item.premise, "Ej ansluten", 'Ansök', 'http://www.servanet.se' + item.link);
+                $row.appendTo($('#results'));
+            }
+
+        });
+    }
+
+    function setupPagination() {
+        /* Empty old pagination list */
+        $('#pagination').html('');
+
+        /* Calculate number of pages */
+        if ($dataset.length > 4) {
+            var $no = Math.ceil($dataset.length / 4);
+            for ($i = 1; $i <= $no; $i++) {
+                var $li = $('<li/>');
+                var $a = $('<a/>', {href: '#',});
+                if ($i == 1) {
+                    $a.addClass('active');
+                }
+                $offset = ($i - 1) * 4;
+                $a.attr('data-offset', $offset);
+                $a.text($i);
+                $a.appendTo($li);
+                $li.appendTo($('#pagination'));
+            }
+            $('#pagination li a').on('click', function (e) {
+                e.preventDefault();
+                $('#pagination li a').removeClass('active');
+                $(this).addClass('active');
+                displayData($dataset.slice($(this).data('offset'), $(this).data('offset') + 4));
+            });
+        }
+    }
+
+
+    function constructRow($address, $apartment, $status, $linkText, $link) {
+        if ($apartment === undefined || $apartment == '') {
+            $apartment = '-';
+        }
+        var $li = $('<li/>');
+        var $div = $('<div/>', {class: 'result-wrapper'});
+
+        var $addressEl = $('<div/>', {class: 'address'});
+        $addressEl.html($address);
+        $addressEl.appendTo($div);
+
+        var $apartmentEl = $('<div/>', {class: 'apartment'});
+        $apartmentEl.html($apartment);
+        $apartmentEl.appendTo($div);
+
+        var $statusEl = $('<div/>', {class: 'status'});
+        $statusEl.html($status);
+        $statusEl.appendTo($div);
+
+        var $linkEl = $('<div/>', {class: 'link-column'});
+        if ($linkText != '') {
+            var $buttonEl = $('<a/>', {class: 'link', href: $link});
+            $buttonEl.html($linkText);
+            $buttonEl.appendTo($linkEl);
+        }
+        $linkEl.appendTo($div);
+
+        $div.appendTo($li);
+
+
+        return $li;
+    }
 })();

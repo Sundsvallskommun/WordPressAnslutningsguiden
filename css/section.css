@@ -1,5 +1,5 @@
 .section {
-  padding-bottom: 130px;
+  padding-bottom: 45px;
 }
 @media only screen and (min-width: 1px) and (max-width: 1199px) {
   .section {
@@ -39,6 +39,9 @@
     line-height: 24px;
     padding: 20px 0 25px;
   }
+}
+.section ol.numbered li {
+  margin-bottom: 85px;
 }
 .section ol.numbered li:before {
   top: 40px;

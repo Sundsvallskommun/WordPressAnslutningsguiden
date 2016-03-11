@@ -2,44 +2,26 @@
 	<div class="after-top">
 		<h2>Vill du efteransluta dig?</h2>
 		<p>Missade du tåget när vi drog fiber till ditt område, eller är du nyinflyttad och vill ansluta dig? Med fiber i området är möjligheterna stora att vi kan efteransluta ditt hus.</p>
-		<div class="interest">
-			<div class="text">
-				<p>Här kan du göra en intresseanmälan så hör vi av oss så fort om möjligt, normal inom två till fyra veckor.</p>
-			</div>
-			{#<div class="button">#}
-				{#<a href="#">Anmäl intresse</a>#}
-			{#</div>#}
-		</div>
 	</div>
 	<div class="after-bottom">
-		<ol class="numbered">
-			<li>
-				<div class="image"></div>
-				<div class="innerafter">
-					<a href="#anslutamotorn">Sök på din adress</a>
-				</div>
-			</li>
-			<li>
-				<div class="image"></div>
-				<div class="innerafter">
-					<p>När du anmält intresse undersöker vi förutsättningarna att ansluta ditt hus. Om vi kan ansluta dig får du en offert tillsammans med ett förslag på hur du kan gräva till närmaste anslutningspunkt.</p>
-				</div>
-			</li>
-			<li>
-				<div class="image"></div>
-				<div class="innerafter">
-					<p>När du har beställt blir du kontaktad av en projektledare, vanligtvis inom två veckor. Då får du mer information kring anslutningen och hur du ska gräva.</p>
-				</div>
-			</li>
-			<li>
-				<div class="image"></div>
-				<div class="innerafter">
-					<p>När du har grävt och dragit in fiberslangen i huset hör du av dig till oss så planerar vi den slutliga installationen av tjänstefördelaren. Efter att vi har monterat tjänstefördelaren i ditt hus behöver vi ungefär två veckor för att aktivera din anslutning. Efter installationen får du en leveransbekräftelse av oss och om du har beställt tjänst eller tecknat nätavtal kan du börja surfa.</p>
-				</div>
-			</li>
-		</ol>
+		<div class="ab-wrapper">
+			<div>
+				<h2>Offert och beställning</h2>
+				<p>Sök på din adress och gör en intresseanmälan för att ta komma igång. När du har anmält intresse undersöker vi dina förutsättningar. Om vi kan ansluta ditt hus får du en offert tillsammans med ett förslag på hur du kan gräva till närmaste anslutningspunkt. Vill du ha fiber så beställer du genom att signera offerten.</p>
+				<a class="bottom-link" href="#anslutamotorn">Anmäl intresse</a>
+			</div>
+			<div>
+				<h2>Du gräver</h2>
+				<p>När vi har tagit emot din beställning blir du kontaktad av en projektledare, vanligtvis inom två veckor. Då får du veta mer om anslutningen och kan börja gräva.</p>
+				{% include 'twig/digguide.twig' %}
+			</div>
+			<div>
+				<h2>Installation och tjänster</h2>
+				<p>Du hör av dig till oss när du har grävt och dragit in fiberslangen i huset så att vi kan planera för den slutliga installationen. När tjänstefördelaren är monterad aktiveras din anslutning inom två veckor och du får en leveransbekräftelse av oss när du kan börja surfa. Under tiden kan du med fördel beställa de tjänster du vill ha.</p>
+				<a class="bottom-link" href="http://www.servanet.se/serviceguide/index/consumers">Beställ tjänster</a>
+			</div>
+		</div>
 	</div>
 
-	{% include 'twig/digguide.twig' %}
 
 </div>

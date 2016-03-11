@@ -99,8 +99,9 @@
 		'text' => '<p>När alla i området har genomfört sin grävning kommer vi och installerar tjänstefördelare i era hus. Efter installationen behöver vi ungefär två veckor för att aktivera din anslutning. När vi har gjort det får du en leveransbekräftelse av oss och om du har beställt tjänst eller tecknat nätavtal kan du börja surfa.</p>'
 	);
 	$data['items'][] = array(
-		'title'	=>	'Beställ leverantör',
-		'text' => '<p>Med en anslutning till ServaNet kan du beställa tjänster inom internet, tv och telefoni från en mängd olika leverantörer. </p>'
+		'title'	=>	'Beställ tjänster',
+		'text' => '<p>Med en anslutning till ServaNet kan du beställa tjänster inom internet, tv och telefoni från en mängd olika leverantörer. </p>',
+		'services' => 1
 	);
 	Timber::render('twig/section.twig', $data);
 
