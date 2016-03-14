@@ -1,14 +1,14 @@
 <div id="anslutamotorn" class="anslutamotorn" style="background-image: url('{{ bgimage }}');">
 	<div class="inner">
 		<h2>Sök på din fiberstatus</h2>
-		<p>Som privatperson kan du söka på din adress för att se om du är ansluten eller tillhör ett område som är påväg att anslutas.</p>
+		<p>Som privatperson kan du söka på ditt gatunamn för att se om du är ansluten eller tillhör ett område som är påväg att anslutas.</p>
 		<form method="post" action="{{ url }}" id="anslutamotornform">
 			<input type="hidden" name="nonce" value="{{ nonce }}">
 			<input type="hidden" name="action" value="servanetlookup" />
 
 			<div class="input-wrapper">
 				<div class="address">
-					<input type="text" name="string" placeholder="" />
+					<input title="Gatunamn" type="text" name="string" placeholder="" />
 				</div>
 				<div class="button">
 					<button type="submit">Sök adress</button>
@@ -16,7 +16,28 @@
 			</div>
 		</form>
 
+		<div id="no-results" class="no-results">
+			<h2>Inga träffar</h2>
+			<div class="button-wrapper">
+				<div class="text">
+					<p>Kontrollera stavningen av ditt gatunamn. Om din gata inte finns i vår databas så kan du fortfarande skicka in en intresseanmälan.</p>
+				</div>
+				<div class="button">
+					<a href="#">Anmäl intresse</a>
+				</div>
+			</div>
+		</div>
+
+		<div id="error-results" class="no-results">
+			<h2>Tillfälligt fel. Försök igen om en liten stund.</h2>
+		</div>
+
 		<div class="results">
+			<div class="results-header">
+				<div class="address">Adress</div>
+				<div class="apartment">Lägenhet</div>
+				<div class="status">Status</div>
+			</div>
 			<ul id="results" class="results">
 
 			</ul>

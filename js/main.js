@@ -11,12 +11,19 @@
                 data: $data
             }).done(function (data) {
                 if (data.results !== undefined && data.error === undefined) {
+                    $('#error-results, #no-results').hide();
+                    $('.results').show();
                     $dataset = data.results;
                     displayData(data.results.slice(0, 4));
                     setupPagination();
                 }
-                if (data.error !== undefined) {
-                    console.log(data.error);
+                else if (data.nothing !== undefined) {
+                    $('.results, #error-results').hide();
+                    $('#no-results').show();
+                }
+                else if (data.error !== undefined) {
+                    $('.results, #no-results').hide();
+                    $('#error-results').show();
                 }
             }).fail(function (data) {
             }).always(function (data) {
@@ -69,7 +76,6 @@
              * If source is "connect", there's a link they can use to apply
              * If source is "connected",
              */
-            console.log(item);
             if (item.status !== undefined && item.status == 'connected') {
                 /* This address is already connected */
                 $row = constructRow(item.address + ', ' + item.city, item.premise, "Ansluten", '', '');
@@ -124,7 +130,7 @@
         $addressEl.appendTo($div);
 
         var $apartmentEl = $('<div/>', {class: 'apartment'});
-        $apartmentEl.html($apartment);
+        $apartmentEl.html('<span>Lägenhet:</span>'+$apartment);
         $apartmentEl.appendTo($div);
 
         var $statusEl = $('<div/>', {class: 'status'});
@@ -133,7 +139,7 @@
 
         var $linkEl = $('<div/>', {class: 'link-column'});
         if ($linkText != '') {
-            var $buttonEl = $('<a/>', {class: 'link', href: $link});
+            var $buttonEl = $('<a/>', {class: 'link', href: $link, target: '_blank'});
             $buttonEl.html($linkText);
             $buttonEl.appendTo($linkEl);
         }

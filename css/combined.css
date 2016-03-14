@@ -511,6 +511,14 @@ h6 {
   background-position: center center;
   color: #fff;
 }
+.anslutamotorn h2 {
+  font-size: 26px;
+  text-transform: uppercase;
+}
+.anslutamotorn p {
+  font-size: 20px;
+  line-height: 28px;
+}
 .anslutamotorn .inner {
   max-width: 1060px;
   padding-left: 20px;
@@ -518,17 +526,17 @@ h6 {
   margin-left: auto;
   margin-right: auto;
   background: rgba(0, 174, 239, 0.9);
-  min-height: 600px;
   padding: 35px;
 }
-.anslutamotorn .inner h2 {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 26px;
+@media only screen and (min-width: 1px) and (max-width: 719px) {
+  .anslutamotorn .inner {
+    padding: 25px 10px;
+  }
 }
-.anslutamotorn .inner p {
-  font-size: 20px;
-  line-height: 28px;
+.anslutamotorn .inner > h2 {
+  text-align: center;
+}
+.anslutamotorn .inner > p {
   text-align: center;
   max-width: 860px;
   padding-left: 20px;
@@ -541,13 +549,33 @@ h6 {
   display: table;
   width: 100%;
 }
+@media only screen and (min-width: 1px) and (max-width: 719px) {
+  .anslutamotorn .inner .input-wrapper {
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 .anslutamotorn .inner .input-wrapper > div {
   display: table-cell;
   vertical-align: top;
   padding: 0 15px;
 }
+@media only screen and (min-width: 1px) and (max-width: 719px) {
+  .anslutamotorn .inner .input-wrapper > div {
+    display: block;
+    padding: 0;
+  }
+}
 .anslutamotorn .inner .input-wrapper > div.button {
   width: 300px;
+}
+@media only screen and (min-width: 1px) and (max-width: 719px) {
+  .anslutamotorn .inner .input-wrapper > div.button {
+    width: 100%;
+    text-align: right;
+    margin-top: 15px;
+  }
 }
 .anslutamotorn .inner input[type="text"],
 .anslutamotorn .inner button {
@@ -562,6 +590,11 @@ h6 {
 }
 .anslutamotorn .inner input[type="text"] {
   padding-left: 20px;
+}
+@media only screen and (min-width: 1px) and (max-width: 719px) {
+  .anslutamotorn .inner button {
+    width: 270px;
+  }
 }
 .dig,
 .after-top {
@@ -921,6 +954,7 @@ a.bottom-link {
 .pagination {
   text-align: center;
   list-style: none;
+  padding-top: 35px;
 }
 .pagination li {
   display: inline-block;
@@ -935,8 +969,108 @@ a.bottom-link {
   text-decoration: underline;
   font-weight: bold;
 }
+.results {
+  margin-top: 40px;
+  display: none;
+}
+.results .results-header {
+  margin: 0px 15px 5px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #fff;
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 1px) and (max-width: 959px) {
+  .results .results-header {
+    display: none;
+  }
+}
+.results .results {
+  margin-top: 0;
+}
+.results .results-header:after,
+.results .result-wrapper:after,
+.results .results-header:before,
+.results .result-wrapper:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+.results .results-header > div,
+.results .result-wrapper > div {
+  float: left;
+}
+.results .results-header > div.address,
+.results .result-wrapper > div.address {
+  padding-top: 3px;
+  width: 50%;
+}
+@media only screen and (min-width: 1px) and (max-width: 959px) {
+  .results .results-header > div.address,
+  .results .result-wrapper > div.address {
+    width: 100%;
+  }
+}
+.results .results-header > div.apartment,
+.results .result-wrapper > div.apartment {
+  padding-top: 3px;
+  width: 25%;
+}
+.results .results-header > div.apartment span,
+.results .result-wrapper > div.apartment span {
+  display: none;
+}
+@media only screen and (min-width: 1px) and (max-width: 959px) {
+  .results .results-header > div.apartment,
+  .results .result-wrapper > div.apartment {
+    width: 100%;
+  }
+  .results .results-header > div.apartment span,
+  .results .result-wrapper > div.apartment span {
+    display: inline;
+    padding-right: 5px;
+  }
+}
+.results .results-header > div.status,
+.results .result-wrapper > div.status {
+  padding-top: 3px;
+  width: 10%;
+}
+@media only screen and (min-width: 1px) and (max-width: 959px) {
+  .results .results-header > div.status,
+  .results .result-wrapper > div.status {
+    width: 100%;
+  }
+}
+.results .results-header > div.link-column,
+.results .result-wrapper > div.link-column {
+  width: 15%;
+  text-align: right;
+}
+@media only screen and (min-width: 1px) and (max-width: 959px) {
+  .results .results-header > div.link-column,
+  .results .result-wrapper > div.link-column {
+    width: 100%;
+  }
+}
+.results .results-header > div.link-column a,
+.results .result-wrapper > div.link-column a {
+  margin-right: 0;
+  margin-left: auto;
+  width: 110px;
+  color: #1a4770;
+  background: #fff;
+  padding: 3px 15px;
+  display: block;
+  text-align: center;
+}
 .results ul.results {
   list-style: none;
+  padding: 0 15px;
+}
+@media only screen and (min-width: 1px) and (max-width: 719px) {
+  .results ul.results {
+    padding: 0;
+  }
 }
 .results ul.results li {
   border-bottom: 1px solid #fff;
@@ -949,11 +1083,56 @@ a.bottom-link {
   margin-bottom: 0;
 }
 .results ul.results li .result-wrapper {
-  display: table;
-  width: 100%;
+  min-height: 28px;
 }
-.results ul.results li .result-wrapper > div {
-  display: table-cell;
-  vertical-align: middle;
+.no-results {
+  margin: 50px 15px 0;
+  padding-top: 50px;
+  border-top: 2px solid #fff;
+  display: none;
+}
+.no-results .button-wrapper {
+  margin: 0 -15px;
+}
+.no-results .button-wrapper:after,
+.no-results .button-wrapper:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+.no-results .button-wrapper > div {
+  float: left;
+  padding: 0 15px;
+}
+@media only screen and (min-width: 1px) and (max-width: 719px) {
+  .no-results .button-wrapper > div {
+    float: none;
+  }
+}
+.no-results .button-wrapper > div.text {
+  width: calc(100% - 300px);
+}
+@media only screen and (min-width: 1px) and (max-width: 719px) {
+  .no-results .button-wrapper > div.text {
+    width: 100%;
+  }
+}
+.no-results .button-wrapper > div.button {
+  width: 300px;
+}
+@media only screen and (min-width: 1px) and (max-width: 719px) {
+  .no-results .button-wrapper > div.button {
+    margin-top: 20px;
+    margin-right: 0;
+    margin-left: auto;
+  }
+}
+.no-results .button-wrapper > div.button a {
+  background: #fff;
+  color: #1a4770;
+  font-size: 22px;
+  line-height: 60px;
+  text-align: center;
+  display: block;
 }
 /*# sourceMappingURL=combined.css.map */

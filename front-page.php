@@ -11,12 +11,38 @@
 //	Timber::render('twig/full-height-box.twig', array('color1'=>'#0000ff', 'color2' =>'#000000'));
 //	echo '</div>';
 
-	$headerImage = array();
-	$headerImage['image'] = get_template_directory_uri().'/img/header.jpg';
-	$headerImage['logo'] = get_template_directory_uri().'/img/logo-servanet-stor.png';
-	Timber::render('twig/headerimage.twig', $headerImage);
+	$headerData = array();
+	$headerData['image'] = get_field('background');
+	if ($headerData['image'] == '') {
+		$headerData['image'] = get_template_directory_uri().'/img/header.jpg';
+	}
+
+	$headerData['logo'] = get_field('logo');
+	if ($headerData['logo'] == '') {
+		$headerData['logo'] = get_template_directory_uri().'/img/logo-servanet-stor.png';
+	}
+
+	$headerData['title'] = get_field('title');
+	if ($headerData['title'] == '') {
+		$headerData['title'] = "Anslutningsguiden";
+	}
+
+	$headerData['subtitle'] = get_field('subtitle');
+	if ($headerData['subtitle'] == "") {
+		$headerData['subtitle'] = "Din hjälp till en trygg fiberanslutning";
+	}
+
+	Timber::render('twig/headerimage.twig', $headerData);
+
 
 	$intro = array();
+	$intro['top'] = array();
+	$intro['top']['title'] = 'Anslutningsguiden – För dig i villa';
+	$intro['top']['text'] = 'Anslutningsguiden är till för dig som är intresserad av att fiberansluta din villa eller redan är på väg att få en anslutning. Här kan du läsa om förloppet – från intresseanmälan till färdig anslutning.';
+
+	$intro['bottom'] = array();
+	$intro['bottom']['title'] = "Så här fungerar guiden";
+	$intro['bottom']['text'] = "Att dra in fiber till ditt hushåll innehåller ett flertal etapper. Här kan du följa hela processen uppdelat i tre faser.";
 	$intro['image'] = get_template_directory_uri().'/img/foto-intro.jpg';
 	Timber::render('twig/intro.twig', $intro);
 

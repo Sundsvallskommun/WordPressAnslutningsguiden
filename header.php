@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sv" lang="sv">
 	<head>
 		<meta charset="utf-8">
 		<?php if (stristr($_SERVER['SERVER_NAME'], 'vm02')) {?>

@@ -114,19 +114,26 @@ h6 {
   background-size: cover;
   background-position: center center;
   color: #fff;
+  h2 {
+    font-size: 26px;
+    text-transform: uppercase;
+  }
+  p {
+    font-size: 20px;
+    line-height: 28px;
+  }
   .inner {
     .MaxWidth(1060px);
     background: fade(@blue, 90%);
-    min-height: 600px;
+    //min-height: 600px;
     padding: 35px;
-    h2 {
-      text-align: center;
-      text-transform: uppercase;
-      font-size: 26px;
+    @media @size-320 {
+      padding: 25px 10px;
     }
-    p {
-      font-size: 20px;
-      line-height: 28px;
+    >h2 {
+      text-align: center;
+    }
+    >p {
       text-align: center;
       .MaxWidth(860px);
     }
@@ -135,12 +142,26 @@ h6 {
       padding-top: 60px;
       display: table;
       width: 100%;
+      @media @size-320 {
+        display: block;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
       >div {
         display: table-cell;
         vertical-align: top;
         padding: 0 15px;
+        @media @size-320 {
+          display: block;
+          padding: 0;
+        }
         &.button {
           width: 300px;
+          @media @size-320 {
+            width: 100%;
+            text-align: right;
+            margin-top: 15px;
+          }
         }
       }
     }
@@ -157,6 +178,11 @@ h6 {
     }
     input[type="text"] {
       padding-left: 20px;
+    }
+    button {
+      @media @size-320 {
+        width: 270px;
+      }
     }
   }
 }
@@ -468,6 +494,7 @@ a.bottom-link {
 .pagination {
   text-align: center;
   list-style: none;
+  padding-top: 35px;
   li {
     display: inline-block;
     a {
@@ -484,8 +511,82 @@ a.bottom-link {
 }
 
 .results {
+  margin-top: 40px;
+  display: none;
+  .results-header {
+    margin: 0px 15px 5px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #fff;
+    text-transform: uppercase;
+    @media @size-720 {
+      display: none;
+    }
+    >div {
+
+    }
+  }
+  .results {
+    margin-top: 0;
+  }
+  .results-header,
+  .result-wrapper {
+    .ClearFix();
+    >div {
+      float: left;
+      &.address {
+        padding-top: 3px;
+        width: 50%;
+        @media @size-720 {
+          width: 100%;
+        }
+      }
+      &.apartment {
+        padding-top: 3px;
+        width: 25%;
+        span {
+          display: none;
+        }
+        @media @size-720 {
+          width: 100%;
+          span {
+            display: inline;
+            padding-right: 5px;
+          }
+        }
+      }
+      &.status {
+        padding-top: 3px;
+        width: 10%;
+        @media @size-720 {
+          width: 100%;
+        }
+      }
+      &.link-column {
+        width: 15%;
+        text-align: right;
+        @media @size-720 {
+          width: 100%;
+        }
+        a {
+          margin-right: 0;
+          margin-left: auto;
+          width: 110px;
+          color: @blue-dark;
+          background: #fff;
+          padding: 3px 15px;
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+
+  }
   ul.results {
     list-style: none;
+    padding: 0 15px;
+    @media @size-320 {
+      padding: 0;
+    }
     li {
       border-bottom: 1px solid #fff;
       padding-bottom: 5px;
@@ -496,11 +597,49 @@ a.bottom-link {
         margin-bottom: 0;
       }
       .result-wrapper {
-        display: table;
-        width: 100%;
-        >div {
-          display: table-cell;
-          vertical-align: middle;
+        min-height: 28px;
+        //display: table;
+        //width: 100%;
+
+      }
+    }
+  }
+}
+
+.no-results {
+  margin: 50px 15px 0;
+  padding-top: 50px;
+  border-top: 2px solid #fff;
+  display: none;
+  .button-wrapper {
+    .ClearFix();
+    margin: 0 -15px;
+    >div {
+      float: left;
+      padding: 0 15px;
+      @media @size-320 {
+        float: none;
+      }
+      &.text {
+        width: calc(~"100% - 300px");
+        @media @size-320 {
+          width: 100%;
+        }
+      }
+      &.button {
+        width: 300px;
+        @media @size-320 {
+          margin-top: 20px;
+          margin-right: 0;
+          margin-left: auto;
+        }
+        a {
+          background: #fff;
+          color: @blue-dark;
+          font-size: 22px;
+          line-height: 60px;
+          text-align: center;
+          display: block;
         }
       }
     }

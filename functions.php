@@ -129,17 +129,8 @@
 					$matchesRaw = $xml->response->matches->children();
 //					print_r($matchesRaw);
 					$matches = array();
-					if (count($matchesRaw) > 0) {
+					if (count($matchesRaw) > 0 && false) {
 						foreach ($matchesRaw as $matchItem) {
-//							$tempObj = new stdClass();
-//							$tempObj->link = 'http://www.servanet.se'.(string)$matchItem->link;
-//							$tempObj->address = (string)$matchItem->address;
-//							$tempObj->source = (string)$matchItem->source;
-//							$tempObj->type = (string)$matchItem->type;
-//							$tempObj->area = (string)$matchItem->area;
-//							$tempObj->city = (string)$matchItem->city;
-//							$tempObj->zip = (string)$matchItem->zip;
-//							$matches[] = $tempObj;
 							$array = array();
 							foreach($matchItem as $k => $v) {
 								$array[$k] = (string)$v;
@@ -149,7 +140,7 @@
 						$return['results'] = $matches;
 					}
 					else {
-						$return['error'] = 'Din sökning gav inga resultat.';
+						$return['nothing'] = 'Din sökning gav inga resultat.';
 					}
 				}
 				else {
