@@ -1,5 +1,10 @@
 <div class="order">
-	<h2>Beställa tjänsteleverantör</h2>
-	<p>ServaNet levererar fiber med ljusets hastighet i ett helt öppet nät.<br/>Det betyder att du själv kan välja mellan Sveriges alla tjänsteleverantörer för att få precis det utbud som passar dig.</p>
-	<p><strong>Det är en av de fina sakerna med fiber.</strong></p>
+	<h2>{{ title }}</h2>
+	{% for row in rows %}
+		<p>
+			{% if row.bold is defined and row.bold == 1%}<strong>{% endif %}
+				{{ row.text }}
+			{% if row.bold is defined and row.bold == 1%}</strong>{% endif %}
+		</p>
+	{% endfor %}
 </div>

@@ -37,103 +37,90 @@
 
 	$intro = array();
 	$intro['top'] = array();
-	$intro['top']['title'] = 'Anslutningsguiden – För dig i villa';
-	$intro['top']['text'] = 'Anslutningsguiden är till för dig som är intresserad av att fiberansluta din villa eller redan är på väg att få en anslutning. Här kan du läsa om förloppet – från intresseanmälan till färdig anslutning.';
+
+	$intro['top']['title'] = get_field('i_title');
+	if ($intro['top']['title'] == '') {
+		$intro['top']['title'] = 'Anslutningsguiden – För dig i villa';
+	}
+
+	$intro['top']['text'] = get_field('i_text');
+	if ($intro['top']['text'] == '') {
+		$intro['top']['text'] = 'Anslutningsguiden är till för dig som är intresserad av att fiberansluta din villa eller redan är på väg att få en anslutning. Här kan du läsa om förloppet – från intresseanmälan till färdig anslutning.';
+	}
 
 	$intro['bottom'] = array();
-	$intro['bottom']['title'] = "Så här fungerar guiden";
-	$intro['bottom']['text'] = "Att dra in fiber till ditt hushåll innehåller ett flertal etapper. Här kan du följa hela processen uppdelat i tre faser.";
-	$intro['image'] = get_template_directory_uri().'/img/foto-intro.jpg';
+	$intro['bottom']['title'] = get_field('i_lower_title');
+	if ($intro['bottom']['title'] == '') {
+		$intro['bottom']['title'] = "Så här fungerar guiden";
+	}
+
+	$intro['bottom']['text'] = get_Field('i_lower_text');
+	if ($intro['bottom']['text'] == '') {
+		$intro['bottom']['text'] = "Att dra in fiber till ditt hushåll innehåller ett flertal etapper. Här kan du följa hela processen uppdelat i tre faser.";
+	}
+
+	$intro['image'] = get_field('i_image');
+	if ($intro['image'] == '') {
+		$intro['image'] = get_template_directory_uri().'/img/foto-intro.jpg';
+	}
 	Timber::render('twig/intro.twig', $intro);
+
 
 	$data = array();
 	$data['nonce'] = wp_create_nonce("servanetlookup-nonce");
 	$data['url'] = admin_url('admin-ajax.php');
-	$data['bgimage'] = get_template_directory_uri().'/img/foto-sundsvall.jpg';
+
+	$data['title'] = get_field('a_title');
+	if ($data['title'] == '') {
+		$data['title'] = 'Sök på din fiberstatus';
+	}
+
+	$data['text'] = get_field('a_text');
+	if ($data['text'] == '') {
+		$data['text'] = 'Som privatperson kan du söka på ditt gatunamn för att se om du är ansluten eller tillhör ett område som är påväg att anslutas.';
+	}
+
+	$data['bgimage'] = get_field('a_image');
+	if ($data['bgimage'] == '') {
+		$data['bgimage'] = get_template_directory_uri().'/img/foto-sundsvall.jpg';
+	}
 
 	Timber::render('twig/anslutamotorn.twig', $data);
 
 
-	/* Intresse */
-	$data = array();
-	$data['title'] = 'Intresse';
-	$data['id'] = 'intresse';
-	$data['ingress'] = "En grundförutsättning för att få fiber till ditt hus är att intresset bland dina grannar är tillräckligt stort. Här läser du mer om hur du anmäler intresse och vad som krävs för att vi ska påbörja ett projekt.";
-	$data['items'] = array();
-	$data['items'][] = array(
-		'title'	=>	'Intresseanmälan',
-		'text'		=>	'<p>Första steget mot en fiberanslutning är att du gör en intresseanmälan. Börja med att söka på din adress för att ta reda på om du ingår i ett område som vi bearbetar just nu och anmäl sedan ditt intresse.</p>',
-		'application' => 1
-	);
-	$data['items'][] = array(
-		'title'	=>	'Hjälp oss informera',
-		'text' => '<p>Det krävs ett större antal intresserade för att vi ska börja titta på fibermöjligheterna i ditt område. Vill du ha fiber kan du prata med dina grannar och uppmana dem att anmäla sitt intresse till oss. Hör gärna av dig om du brinner lite extra för fiber och vill agera fiberambassadör för ditt område.</p>',
-		'ambasador'	=> 1
-	);
-	$data['items'][] = array(
-		'title'	=>	'Projektering',
-		'text' => '<p>När tillräckligt många visat intresse undersöker vi de ekonomiska förutsättningarna för att bygga ut fibernätet i ditt område. Några faktorer som spelar in är hur långt ifrån det befintliga nätet ni bor samt områdets geografi, terräng och markförhållanden.</p>'
-	);
-	Timber::render('twig/section.twig', $data);
+	/* Sections */
+	$sections = get_field('section');
+//	echo '<pre>';
+//	print_r($sections);die;
 
-	/* Beställningsstart */
-	$data = array();
-	$data['title'] = 'Beställning';
-	$data['id'] = 'order';
-	$data['ingress'] = "När vi har undersökt möjligheterna att fiberansluta ditt område och konstaterat att förutsättningarna är gynnsamma samlar vi in beställningar från er. Här läser du mer om tiden från informationsmöte till beslut om fiberutbyggnad.";
-	$data['items'] = array();
-	$data['items'][] = array(
-		'title'	=>	'Informationsmöte',
-		'text'	=> '<p>När projekteringen är avslutad kallas hela området till ett möte där du får information om vad det innebär att fiberansluta sig och hur många som behöver beställa för att vi ska ha möjlighet att bygga fiber till ditt område. Du får även veta anslutningspunktens placering, dit du ska gräva från villan.</p><p>Med dig får du en beställningsblankett med information om vad fiberanslutningen kostar.</p>'
-	);
-	$data['items'][] = array(
-		'title'	=>	'Beställningsperiod',
-		'text' => '<p>Efter informationsmötet följer en period, i vanliga fall på mellan två och tre veckor, när vi tar upp beställningar. Kom ihåg att det är antalet beställningar i området som avgör om bygget blir av. Vill du ha en fiberanslutning är det bästa du kan göra att engagera dina grannar och hjälpa oss att sprida information.</p><p>Efter sista beställningsdag börjar vi planera området och om vi får din beställning för sent kan vi inte garantera att du blir ansluten samtidigt som dina grannar.</p>'
-	);
-	$data['items'][] = array(
-		'title'	=>	'Beslut',
-		'text' => '<p>Efter sista beställningsdag ser vi om tillräckligt många har beställt för att vi ska kunna starta ett fiberprojekt i ditt område. Om målet inte nås blir området vilande.</p><p>Det innebär att ServaNet inte längre aktivt bearbetar området, men om intresset ökar är det möjligt att aktivera området igen i framtiden. Beroende på våra andra fiberprojekt kan det dröja innan vi har möjlighet att gör ett nytt försök hos dig.</p>'
-	);
-	Timber::render('twig/section.twig', $data);
+	foreach ($sections as $section) {
+		Timber::render('twig/section_f_backend.twig', $section);
+	}
 
 
-	/* Utbyggnad */
-	$data = array();
-	$data['title'] = 'Utbyggnad';
-	$data['id'] = 'expand';
-	$data['ingress'] = "När vi fått in tillräckligt många beställningar meddelar vi vårt beslut om att bygga ut fibernätet i ditt område. Här kan du läsa om hur det går till och vad du själv bör tänka på och ta ställning till under utbyggnaden.";
-	$data['items'] = array();
-	$data['items'][] = array(
-		'title'	=>	'Datum meddelas',
-		'text'	=> '<p>När beställningsmålet uppnås meddelas du om att fiberdragningen blir av och får ett preliminärt byggstartsdatum. Datumet ligger vanligtvis tre till sex månader fram i tiden, bland annat beroende på årstid. Vi bygger bara under tjälfri säsong och vi ansluter inga villor på vintern.</p>'
-	);
-	$data['items'][] = array(
-		'title'	=>	'Byggstartsmöte',
-		'text' => '<p>Innan vi påbörjar grävningen kallas hela området till ett byggstartsmöte. Du får information om vad som händer i området och hur det kommer att påverka dig och dina grannar. Du får veta när du behöver vara färdig med din grävning och när vi beräknar ha anslutit hela området.</p>'
-	);
-	$data['items'][] = array(
-		'title'	=>	'Vi gräver',
-		'text' => '<p>Från befintligt fibernät gräver vi nu fiber till ditt område och till de projekterade anslutningspunkterna. Vi gräver på kommunal mark och sköter grävningen i eventuell asfalt.</p>'
-	);
-	$data['items'][] = array(
-		'title'	=>	'Du gräver',
-		'dig'	=>	1,
-		'text' => '<p>Du gräver och lägger ner fiberslang mellan huset och anslutningspunkten. Sträckan är på din tomt och i vissa fall kan du behöva samordna grävningen med din granne för att ta dig till anslutningspunkten. Därefter borrar du hål i husväggen och drar in fiberslangen.</p>'
-	);
-	$data['items'][] = array(
-		'title'	=>	'Installation',
-		'text' => '<p>När alla i området har genomfört sin grävning kommer vi och installerar tjänstefördelare i era hus. Efter installationen behöver vi ungefär två veckor för att aktivera din anslutning. När vi har gjort det får du en leveransbekräftelse av oss och om du har beställt tjänst eller tecknat nätavtal kan du börja surfa.</p>'
-	);
-	$data['items'][] = array(
-		'title'	=>	'Beställ tjänster',
-		'text' => '<p>Med en anslutning till ServaNet kan du beställa tjänster inom internet, tv och telefoni från en mängd olika leverantörer. </p>',
-		'services' => 1
-	);
-	Timber::render('twig/section.twig', $data);
+	$after = array();
+	$after['title'] = get_field('af_title');
+	if ($after['title'] == '') {
+		$after['title'] = 'Vill du efteransluta dig?';
+	}
+	$after['text'] = get_field('af_text');
+	if ($after['text'] == '') {
+		$after['text'] = 'Missade du tåget när vi drog fiber till ditt område, eller är du nyinflyttad och vill ansluta dig? Med fiber i området är möjligheterna stora att vi kan efteransluta ditt hus.';
+	}
+	$after['steps'] = get_field('af_steps');
+	Timber::render('twig/after.twig', $after);
 
 
-	Timber::render('twig/after.twig');
-	Timber::render('twig/order.twig');
-	Timber::render('twig/dig.twig');
+	$order = Array();
+	$order['title'] = 'Beställa tjänsteleverantör';
+	$order['title'] = get_field('tl_title');
+	$order['rows'] = get_field('tl_rows');
+	Timber::render('twig/order.twig', $order);
+
+	$dig = array();
+	$dig['title'] = get_field('dig_title');
+	$dig['text'] = get_field('dig_text');
+	$dig['video'] = get_field('video');
+	Timber::render('twig/dig.twig', $dig);
 	get_footer();
 

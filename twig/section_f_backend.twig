@@ -1,0 +1,28 @@
+{# This is the section-file when fetching from backend, keeping section.twig for now in case of fuckups #}
+<div class="section"{% if id is defined %} id="{{ id }}"{% endif %}>
+	<h2>{{ title }}</h2>
+	<div class="content">
+		<p>{{ ingress }}</p>
+		<ol class="numbered">
+			{% for item in sections %}
+				<li>
+					<div class="innerli">
+						<h3>{{ item.title }}</h3>
+						<div>
+						{{ item.text|raw }}
+						{% if item.link == 'extern' and item.extern != '' %}
+							<a href="{{ item.extern }}" class="ambassador" target="_blank">{{ item.linktext }}</a>
+						{% elseif item.link == 'intern' and item.intern != ''%}
+							<a href="{{ item.intern }}" class="ambassador scrollTo">{{ item.linktext }}</a>
+						{% elseif item.link == 'dig' %}
+							<div class="dig-guide">
+								<a href="#dig" class="dig-guide-link scrollTo">Läs mer i vår grävningsguide</a>
+							</div>
+						{% endif %}
+						</div>
+					</div>
+				</li>
+			{% endfor %}
+		</ol>
+	</div>
+</div>

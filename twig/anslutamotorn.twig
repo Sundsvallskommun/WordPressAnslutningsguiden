@@ -1,7 +1,7 @@
 <div id="anslutamotorn" class="anslutamotorn" style="background-image: url('{{ bgimage }}');">
 	<div class="inner">
-		<h2>Sök på din fiberstatus</h2>
-		<p>Som privatperson kan du söka på ditt gatunamn för att se om du är ansluten eller tillhör ett område som är påväg att anslutas.</p>
+		<h2>{{ title }}</h2>
+		<p>{{ text }}</p>
 		<form method="post" action="{{ url }}" id="anslutamotornform">
 			<input type="hidden" name="nonce" value="{{ nonce }}">
 			<input type="hidden" name="action" value="servanetlookup" />
@@ -23,7 +23,7 @@
 					<p>Kontrollera stavningen av ditt gatunamn. Om din gata inte finns i vår databas så kan du fortfarande skicka in en intresseanmälan.</p>
 				</div>
 				<div class="button">
-					<a href="#">Anmäl intresse</a>
+					<a href="http://www.servanet.se/connect/apply.php" target="_blank">Anmäl intresse</a>
 				</div>
 			</div>
 		</div>
