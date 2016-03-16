@@ -31,8 +31,18 @@
         });
 
         $('.opener').on('click', function (e) {
+            e.stopPropagation();
             e.preventDefault();
             $('nav ul').toggleClass('active');
+            if ($('nav ul').hasClass('active')) {
+                $(document).one('click', function(e) {
+                    e.stopPropagation();
+                    console.log(e.target);
+                    if ($('nav ul').hasClass('active')) {
+                        $('nav ul').removeClass('active');
+                    }
+                })
+            }
         });
 
 

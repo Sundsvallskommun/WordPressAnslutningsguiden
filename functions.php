@@ -127,9 +127,8 @@
 				$xml = $xml->search;
 				if ($xml->status == 'success') {
 					$matchesRaw = $xml->response->matches->children();
-//					print_r($matchesRaw);
 					$matches = array();
-					if (count($matchesRaw) > 0 && false) {
+					if (count($matchesRaw) > 0) {
 						foreach ($matchesRaw as $matchItem) {
 							$array = array();
 							foreach($matchItem as $k => $v) {
