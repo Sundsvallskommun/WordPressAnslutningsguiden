@@ -92,7 +92,18 @@
                 $row.appendTo($('#results'));
             }
             else if (item.source == 'connect') {
-                $row = constructRow(item.address + ', ' + item.city, item.premise, "Ej ansluten", 'Ansök', 'http://www.servanet.se' + item.link);
+                var $buttonText = 'Ansök';
+                if (item.status !== undefined && item.status == 'interest') {
+                    var $status = 'Intresse';
+                    $buttonText = 'Status'
+                }
+                else if (item.status !== undefined && item.status != '') {
+                    var $status = item.status;
+                }
+                else {
+                    var $status = 'Ej ansluten';
+                }
+                $row = constructRow(item.address + ', ' + item.city, item.premise, $status, $buttonText, 'http://www.servanet.se' + item.link);
                 $row.appendTo($('#results'));
             }
 
