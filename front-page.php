@@ -115,12 +115,13 @@
 	$order['title'] = 'Beställa tjänsteleverantör';
 	$order['title'] = get_field('tl_title');
 	$order['rows'] = get_field('tl_rows');
-	Timber::render('twig/order.twig', $order);
+//	Timber::render('twig/order.twig', $order);
 
 	$dig = array();
 	$dig['title'] = get_field('dig_title');
 	$dig['text'] = get_field('dig_text');
 	$dig['video'] = get_field('video');
+	$dig['url'] = get_field('dig_url');
 	Timber::render('twig/dig.twig', $dig);
 	get_footer();
 

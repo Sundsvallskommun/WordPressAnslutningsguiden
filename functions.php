@@ -136,7 +136,10 @@
 							}
 							$matches[] = $array;
 						}
-						$return['results'] = $matches;
+						usort($matches, function($a, $b) {
+							return strnatcasecmp($a['address'], $b['address']);
+						});
+						$return['results'] = array_values($matches);
 					}
 					else {
 						$return['nothing'] = 'Din sökning gav inga resultat.';

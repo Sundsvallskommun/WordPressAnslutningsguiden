@@ -28,6 +28,9 @@
       line-height: 30px;
       text-align: center;
       padding: 40px 0 45px;
+      //&:nth-child(n+1) {
+      //  padding-top: 20px;
+      //}
       @media @size-960 {
         .FontBreadSmall();
         padding: 20px 0 25px;
@@ -74,8 +77,14 @@
         p {
           font-size: 18px;
           line-height: 30px;
+          &:nth-of-type(n+2) {
+            padding-top: 30px;
+          }
           @media @size-960 {
             .FontBreadSmall();
+            &:nth-of-type(n+2) {
+              padding-top: 24px;
+            }
           }
         }
       }

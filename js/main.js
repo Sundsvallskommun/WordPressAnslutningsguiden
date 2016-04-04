@@ -5,6 +5,7 @@
             e.preventDefault();
             var $url = $(this).attr('action');
             var $data = $(this).serialize();
+            $('.results').hide();
             $.ajax({
                 dataType: 'json',
                 url: $url,
@@ -88,7 +89,7 @@
              */
             if (item.status !== undefined && item.status == 'connected') {
                 /* This address is already connected */
-                $row = constructRow(item.address + ', ' + item.city, item.premise, "Ansluten", '', '');
+                $row = constructRow(item.address + ', ' + item.city, item.premise, "Ansluten", 'Tjänster', 'http://www.servanet.se/serviceguide/index/consumers/');
                 $row.appendTo($('#results'));
             }
             else if (item.source == 'connect') {
@@ -149,6 +150,10 @@
         var $addressEl = $('<div/>', {class: 'address'});
         $addressEl.html($address);
         $addressEl.appendTo($div);
+
+        if ($status == 'order') {
+            $status = 'Beställning';
+        }
 
         var $apartmentEl = $('<div/>', {class: 'apartment'});
         $apartmentEl.html('<span>Lägenhet:</span>'+$apartment);
