@@ -6,6 +6,11 @@
             var $url = $(this).attr('action');
             var $data = $(this).serialize();
             $('.results').hide();
+            var $button = $('#search-button');
+            var $loading = $button.data('loading');
+            var $loadingImg = $('<img/>', {src: $loading, alt: 'Laddar resultat'});
+            console.log($loadingImg);
+            $button.html($loadingImg);
             $.ajax({
                 dataType: 'json',
                 url: $url,
@@ -28,6 +33,7 @@
                 }
             }).fail(function (data) {
             }).always(function (data) {
+                $button.html('Sök adress');
             });
         });
 

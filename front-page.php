@@ -84,7 +84,7 @@
 	if ($data['bgimage'] == '') {
 		$data['bgimage'] = get_template_directory_uri().'/img/foto-sundsvall.jpg';
 	}
-
+	$data['loading'] = get_field('a_loading');
 	Timber::render('twig/anslutamotorn.twig', $data);
 
 
