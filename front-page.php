@@ -12,7 +12,7 @@
 //	echo '</div>';
 
 	$headerData = array();
-	$headerData['image'] = get_field('background');
+	$headerData['image'] = get_field('backgroundimage');
 	if ($headerData['image'] == '') {
 		$headerData['image'] = get_template_directory_uri().'/img/header.jpg';
 	}
