@@ -18,10 +18,8 @@
 	<link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/2dda8f53-35cb-4956-a88b-e64c43b1a597.css"/>
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/normalize.css">
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/main.css">
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/slick.min.css">
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/slick-theme.css">
 	<?php
-		if (stristr($_SERVER['SERVER_NAME'], 'vm02') && false) {
+		if (stristr($_SERVER['SERVER_NAME'], 'vm02')) {
 			$cssFiles = [
 				'style'
 				,'footer'
@@ -40,7 +38,7 @@
 		}
 		else {
 			?>
-			<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/combined.css?v=<?php echo time(); ?>">
+			<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/combined.min.css?v=<?php echo time(); ?>">
 			<?php
 		}
 	?>

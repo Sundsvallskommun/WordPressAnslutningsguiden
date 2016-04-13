@@ -4,7 +4,6 @@
  */
 	add_theme_support( 'post-thumbnails' );
 
-
 	/* Prevent åäö etc in uploaded filenames */
 	add_filter('sanitize_file_name', 'sa_sanitize_file_uploads', 10);
 
@@ -23,11 +22,6 @@
 		));
 	}
 
-	foreach (glob (__DIR__.'/functions/*.php') as $file) {
-		include_once $file;
-	}
-
-
 	/* To allow svg uploads */
 	function cc_mime_types($mimes) {
 		$mimes['svg'] = 'image/svg+xml';
@@ -44,65 +38,6 @@
 	));
 	
 	
-	if (class_exists('MultiPostThumbnails')) {
-		$types = array('post', 'page');
-		foreach($types as $type) {
-			new MultiPostThumbnails(array(
-					'label' => 'Textbild',
-					'id' => 'secondary-image',
-					'post_type' => $type
-			)
-			);
-		}
-	}
-
-	add_action("wp_ajax_contact_page", "contact_page");
-	add_action("wp_ajax_nopriv_contact_page", "contact_page");
-
-	function contact_page() {
-		$return = array();
-		if ( !wp_verify_nonce( $_REQUEST['nonce'], "contact-page-nonce")) {
-			$return['error'] = __("Wrong verification. Please reload the page and try again.");
-		}
-		else {
-			$data = $_REQUEST;
-			/* Spamcheck */
-			if ($data['website'] == '') {
-				$mail = array();
-				$mail[] = __('Sender first name').':'.$data['firstname'];
-				$mail[] = __('Sender last name').':'.$data['lastname'];
-				$mail[] = __('Sender telephone').':'.$data['phone'];
-				if ($data['cell'] != '') {
-					$mail[] = __('Sender cellphone').':'.$data['cell'];
-				}
-				$mail[] = __('Sender email').':'.$data['email'];
-				if ($data['company'] != '') {
-					$mail[] = __('Sender company').':'.$data['company'];
-				}
-				if ($data['location'] != '') {
-					$mail[] = __('Sender location').':'.$data['location'];
-				}
-				$mail[] = __('Sender message').':';
-				$mail[] = $data['message'];
-				$to = base64_decode($data['mailto']);
-				$sendmail = wp_mail($to, __('Contactform on website'), implode("\n", $mail));
-				if ($sendmail) {
-					$return['text'] = __('Thank you. We will get back to you as fast as we can.');
-				}
-				else {
-					$return['error'] = __('Could not send the form. Please try again.');
-				}
-			}
-			else {
-				$return['error'] = __('Failed spamcheck. Please reload the page and try again.');
-			}
-		}
-		echo json_encode($return);
-		die;
-	}
-
-
-
 	add_action("wp_ajax_servanetlookup", "servanetlookup");
 	add_action("wp_ajax_nopriv_servanetlookup", "servanetlookup");
 
@@ -113,10 +48,6 @@
 		}
 		else {
 			$data = $_REQUEST;
-			//http://www.example.com/admin/edit/citynetadressess/plain/connected?method=search&api_user=1234&api_key=abcd1234&search=Arholmagatan+12
-			/*
-			 * http://servanet.se/admin/edit/citynetadressess/plain/connected?method=search&api_user=47504&api_key=59bd313dfd623008411f0125a4721e88&search=Glassgränd+19
-			 */
 			$apiuser = 47504;
 			$apikey = '59bd313dfd623008411f0125a4721e88';
 			$search = urlencode($data['string']);
