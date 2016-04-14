@@ -539,7 +539,11 @@ ol.numbered li:before {
   margin: 50px 0 10px;
 }
 .dig .movie-url {
+  color: #00aeef;
+  font-size: 13px;
+  letter-spacing: 1px;
   text-align: center;
+  text-transform: uppercase;
 }
 .dig-guide {
   position: absolute;

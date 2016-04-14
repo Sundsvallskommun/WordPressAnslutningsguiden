@@ -111,10 +111,10 @@
 	Timber::render('twig/after.twig', $after);
 
 
-	$order = Array();
-	$order['title'] = 'Beställa tjänsteleverantör';
-	$order['title'] = get_field('tl_title');
-	$order['rows'] = get_field('tl_rows');
+//	$order = Array();
+//	$order['title'] = 'Beställa tjänsteleverantör';
+//	$order['title'] = get_field('tl_title');
+//	$order['rows'] = get_field('tl_rows');
 //	Timber::render('twig/order.twig', $order);
 
 	$dig = array();
@@ -122,6 +122,10 @@
 	$dig['text'] = get_field('dig_text');
 	$dig['video'] = get_field('video');
 	$dig['url'] = get_field('dig_url');
+	if (!$dig['urltext'] = get_field('dig_url_text')) {
+		$dig['urltext'] = 'Läs mer om dina åtaganden';
+	}
+
 	Timber::render('twig/dig.twig', $dig);
 	get_footer();
 

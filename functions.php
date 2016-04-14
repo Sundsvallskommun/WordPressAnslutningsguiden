@@ -12,15 +12,15 @@
 		return $sanitizedName;
 	}
 
-	if( function_exists('acf_add_options_page') ) {
-		acf_add_options_page(array(
-				'page_title' 	=> 'Inställningar Sidan',
-				'menu_title'	=> 'Aloq',
-				'menu_slug' 	=> 'theme-generic-settings',
-				'capability'	=> 'edit_posts',
-				'redirect'		=> false
-		));
-	}
+//	if( function_exists('acf_add_options_page') ) {
+//		acf_add_options_page(array(
+//				'page_title' 	=> 'Inställningar Sidan',
+//				'menu_title'	=> 'Aloq',
+//				'menu_slug' 	=> 'theme-generic-settings',
+//				'capability'	=> 'edit_posts',
+//				'redirect'		=> false
+//		));
+//	}
 
 	/* To allow svg uploads */
 	function cc_mime_types($mimes) {
