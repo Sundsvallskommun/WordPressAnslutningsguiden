@@ -148,9 +148,10 @@ header .header-wrapper .nav ul li:nth-child(odd) {
 }
 .intro-top .buttons-wrapper {
   position: absolute;
-  left: calc(50% + 20px);
   bottom: 0;
   right: 0;
+  padding-left: 20px;
+  width: 50%;
 }
 .intro-top .buttons-wrapper > p {
   padding-bottom: 15px;
@@ -160,7 +161,8 @@ header .header-wrapper .nav ul li:nth-child(odd) {
     position: relative;
     left: auto;
     bottom: auto;
-    right: auto;
+    padding-left: 0;
+    width: auto;
     padding-top: 20px;
   }
 }
